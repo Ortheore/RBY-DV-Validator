@@ -1,5 +1,6 @@
 //Could maybe sort results?
 //Also adding the results in JSON will either save me a ton of work or be a waste of time, idk
+//Edit: def do it
 
 function checkRedundancy(){
 	//Get input
@@ -33,7 +34,6 @@ function checkRedundancy(){
 			newBetter=compNums(newDVs[0], betterDVs[0]);
 			
 			for(var t=1;t<newDVs.length;t++){
-				alert(newDVs.toString()+"\n"+betterDVs.toString()+"\nnewBetter: "+newBetter+"\ncompNums: "+compNums(newDVs[t], betterDVs[t]));
 				if(newBetter!==compNums(newDVs[t], betterDVs[t])){//If some values are better but some aren't, neither spread is redundant
 					newBetter=null;
 					break;
@@ -69,6 +69,11 @@ function checkRedundancy(){
 	document.getElementById("results").innerText=output;
 	
 	//Construct JSON
+	for(var h=0;h<betterSpreads.length;h++){
+		betterSpreads[h].splice(-1, 1);
+	}
+	var json="\n\nJSON (excludes HP DV)\n\n"+JSON.stringify(betterSpreads);
+	document.getElementById("results").innerText+=json;
 }
 
 function compNums(a, b){
