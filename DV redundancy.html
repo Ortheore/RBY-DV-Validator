@@ -7,6 +7,11 @@
 	
 	Each spread should be in the format ATK/DEF/SPE/SPC, with each spread being on a new line</p>
 	<textarea id="input" style="width:12em;height:12em;"></textarea><br>
+	<label>Ignore ATK?
+		<input type="checkbox" id="ignoreATK">
+	</label><br>
+	<p>
+		Note that when ignoring ATK, some spreads may be practically equivalent (e.g. 5/15/13/13 and 13/15/13/13). In such cases the spread with the lower ATK stat is taken, since in theory you would want to minimise ATK if you're not using it, since it minimises confusion damage while there's no benefit to higher ATK. Obviously, in practice no-one worries about this because the benefit it provides is negligible but it's still suitable for distinguishing between otherwise identical spreads.
 	<button type="submit" onclick="checkRedundancy()">Submit</button>
 	<p id="results">
 	</p>

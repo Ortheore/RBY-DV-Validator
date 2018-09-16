@@ -3,6 +3,8 @@
 //Edit: def do it
 
 function checkRedundancy(){
+	//clear previous output
+	document.getElementById("results").innerText="";
 	//Get input
 	//Could probably think of better names for DV arrays but oh well
 	var newSpreads=document.getElementById("input").value.split("\n");
@@ -10,6 +12,11 @@ function checkRedundancy(){
 		newSpreads[i]=newSpreads[i].split("/");
 	}
 	var betterSpreads=[];
+	var initIndex=0;
+	var ignoreATK=document.getElementById("ignoreATK").checked;//Storing this in a separate variable in case I change my mind about optimising ATK on pure SPATKers
+	if(ignoreATK){//If a pokemon is a pure special atker it doesn't care about atk dvs
+		initIndex=1;
+	}
 	
 	//Check DVs
 	for(var n=0;n<newSpreads.length;n++){
@@ -28,33 +35,58 @@ function checkRedundancy(){
 		
 		//Now to ACTUALLY check redundancy
 		var newBetter=null;
-		var targIndex;
+		var addSpread=false;//This flags the spread to be pushed, freeing up newBetter to be freely modified for each test
 		for(var b=0;b<betterSpreads.length;b++){
 			var betterDVs=betterSpreads[b];
-			newBetter=compNums(newDVs[0], betterDVs[0]);
+			var index=initIndex;//initIndex will be used for all spreads, so I need a copy I can modify within the loop
+			//Set newBetter, but try make sure it's not null.
+			do{
+				newBetter=compNums(newDVs[index], betterDVs[index]);
+				index++;
+			}while(newBetter===null && index<newDVs.length);
 			
-			for(var t=1;t<newDVs.length;t++){
-				if(newBetter!==compNums(newDVs[t], betterDVs[t])){//If some values are better but some aren't, neither spread is redundant
+			if(newBetter===null){
+				if(ignoreATK){
+					//If newBetter is still null, but we're ignoring ATK, then ATK may still differ. In that case, we actually want the smallest ATK value, since there's no reason not to minimise ATK if you're not using it (even though it's practically irrelevant)
+					var tiebreak=compNums(newDVs[0], betterDVs[0]);
+					if(tiebreak===null||tiebreak===true){
+						newBetter=false
+					}else{
+						newBetter=true;
+					}				
+				}else{
+					//If newBetter is null and we're not ignoring ATK, then the spreads are identical and one should be removed
+					newBetter=false;
+				}
+			}
+			
+			for(var t=index;t<newDVs.length;t++){
+				var testDV=compNums(newDVs[t], betterDVs[t]);
+				if(newBetter!==testDV && testDV!==null){//If some values are better but some aren't, neither spread is redundant
 					newBetter=null;
 					break;
 				}
 			}
 			
-			if(newBetter){//If this is true, I will need to save the appropriate index to overwrite with the better spread
-				targIndex=b;
-				break;
-			}
+			//If new spread is redundant, must stop checking immediately
 			if(newBetter===false){
+				addSpread=false;
 				break;
 			}
+			
+			if(newBetter){
+				betterSpreads.splice(b, 1);
+				addSpread=true;
+				b--;
+			}		
 		}
 
 		if(newBetter===null){
 			betterSpreads.push(newDVs);
 			continue;
 		}
-		if(newBetter){
-			betterSpreads[targIndex]=newDVs;
+		if(addSpread){
+			betterSpreads.push(newDVs);
 		}else{
 			//If newer is not better, just leave it and move on
 		}
@@ -77,8 +109,10 @@ function checkRedundancy(){
 }
 
 function compNums(a, b){
-	if(a>=b){
+	if(a>b){
 		return true;
+	}else if(a===b){
+		return null;
 	}else{
 		return false;
 	}

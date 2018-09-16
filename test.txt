@@ -21,3 +21,29 @@ Expected output:
 9/12/9/9(11)
 9/9/12/9(13)
 9/9/9/12(14)
+
+UPDATE: Program now works? I think?
+However, I've implemented an ignore ATK checkbox, and now I'm not sure that it's working.
+Normally Yellow_15's output is:
+8/15/15/13(7)
+8/15/15/14(6)
+9/9/15/15(15)<<<Better3
+9/10/15/15(11)
+11/9/11/15(15)<<<Worse3
+13/9/7/15(15)<<<Worse3
+13/15/13/13(15)<<<Better1
+13/15/13/14(14)<<<Better2
+15/9/3/15(15)<<<Worse3
+15/15/9/13(15)<<<Worse1
+15/15/9/14(14)<<<Worse2
+15/15/14/15(13)
+15/15/15/3(15)
+
+When ignoring ATK, the output is exactly the same. This is a problem, because yellow 15 also contains the following spreads:
+5/15/13/13
+5/15/13/14
+with HP DVs of 15 and 14 respectively. These two spreads are not outclassed by any of the output spreads (they actually make others redundant!) and so should appear in the output, but they don't. Note that when I took only the initial output and substituted the 5ATK spreads in, the program behaved as expected. Also if I substitute 1/15/15/15 into yellow 15, the program correctly returns only 1/15/15/15(15).
+
+OK I figured out why 5/15/13/13 doesn't appear- it's functionally equivalent to  13/15/13/13, and because compNums returns true if the numbers are equal, the second DV spread to get processed will overwrite the older one. Because 13/15/13/13 appears later in the input text, it overwrites 5/15/13/13. This is something that might be worth addressing, but it's an extremely low priority task, to the point where I don't intend to bother with it. Actually... it shouldn't be terribly difficult to implement...?
+
+The real question is why the inferior spreads highlighted above aren't getting removed. Worth noting that all of the inferior ones come after the better spread. May be a coincidence, but it's still worth noting
