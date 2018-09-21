@@ -3,16 +3,22 @@
 <head>
 </head>
 <body>
-	<p>This application accepts a range of possible DV values in RBY and returns the ones that are not outclassed. A DV spread is outclassed of all of its values are less than the corresponding values of another single spread.
+	<p>This application accepts a range of possible DV values in RBY and returns the ones that are not outclassed. A DV spread is outclassed of all of its values are less than the corresponding values of another single spread.<br><br>
 	
-	Each spread should be in the format ATK/DEF/SPE/SPC, with each spread being on a new line</p>
-	<textarea id="input" style="width:12em;height:12em;"></textarea><br>
+	Each spread should be in the format ATK/DEF/SPE/SPC, with each spread being on a new line. The second text area is optional, and is used for identifying spreads that are common to different sets. Note that currently there are no redundancy checks after comparing the two text areas, which may cause some inconsistent results</p>
+	<label>1
+		<textarea id="input1" style="width:12em;height:12em;"></textarea>
+	</label>&nbsp
+	<label>2
+		<textarea id="input2" style="width:12em;height:12em;"></textarea>
+	</label><br>
 	<label>Ignore ATK?
 		<input type="checkbox" id="ignoreATK">
 	</label><br>
 	<p>
 		Note that when ignoring ATK, some spreads may be practically equivalent (e.g. 5/15/13/13 and 13/15/13/13). In such cases the spread with the lower ATK stat is taken, since in theory you would want to minimise ATK if you're not using it, since it minimises confusion damage while there's no benefit to higher ATK. Obviously, in practice no-one worries about this because the benefit it provides is negligible but it's still suitable for distinguishing between otherwise identical spreads.
-	<button type="submit" onclick="checkRedundancy()">Submit</button>
+	</p>
+	<button type="submit" onclick="processSets()">Submit</button>
 	<p id="results">
 	</p>
 	<script src="CheckRedundancy.js"></script>

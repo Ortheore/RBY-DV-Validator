@@ -47,3 +47,8 @@ with HP DVs of 15 and 14 respectively. These two spreads are not outclassed by a
 OK I figured out why 5/15/13/13 doesn't appear- it's functionally equivalent to  13/15/13/13, and because compNums returns true if the numbers are equal, the second DV spread to get processed will overwrite the older one. Because 13/15/13/13 appears later in the input text, it overwrites 5/15/13/13. This is something that might be worth addressing, but it's an extremely low priority task, to the point where I don't intend to bother with it. Actually... it shouldn't be terribly difficult to implement...?
 
 The real question is why the inferior spreads highlighted above aren't getting removed. Worth noting that all of the inferior ones come after the better spread. May be a coincidence, but it's still worth noting
+
+THIS ALL GOT FIXED. THE LESSON IS: I'M BAD AT WRITING TESTS LOL
+
+================================================
+Ok, now implementing means of comparing two data sets. As far as I can see, the checks are working well indepently, but everything comparing them doesn't work
