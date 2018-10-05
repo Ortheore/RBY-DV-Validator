@@ -3,9 +3,88 @@
 <head>
 </head>
 <body>
-	<p>This application accepts a pokemon and its stats and determines whether it has stats that would be impossible to attain legitimately due to the DV restriction glitch.</p>
+	<p>This application accepts a pokemon and its stats and determines whether it has stats that would be impossible to attain legitimately due to the DV restriction glitch. Note that only pokemon with stat restrictions are available to be selected. This also assumes that pokemon are lvl 100.</p>
 	<label>Pokemon
-		<input id="pokemon" type="text">
+		<select id="pokemon">
+			<option value="Caterpie">Caterpie</option>
+			<option value="Metapod">Metapod</option>
+			<option value="Butterfree">Butterfree</option>
+			<option value="Weedle">Weedle</option>
+			<option value="Kakuna">Kakuna</option>
+			<option value="Beedrill">Beedrill</option>
+			<option value="Pidgey">Pidgey</option>
+			<option value="Pidgeotto">Pidgeotto</option>
+			<option value="Pidgeot">Pidgeot</option>
+			<option value="Rattata">Rattata</option>
+			<option value="Raticate">Raticate</option>
+			<option value="Spearow">Spearow</option>
+			<option value="Fearow">Fearow</option>
+			<option value="Ekans">Ekans</option>
+			<option value="Arbok">Arbok</option>
+			<option value="ArbokMove">Arbok (has Wrap/Leer/Poison Sting)</option>
+			<option value="Sandshrew">Sandshrew</option>
+			<option value="Sandslash">Sandslash</option>
+			<option value="SandslashMove">Sandslash (has Scratch/Sand Attack)</option>
+			<option value="Nidoran(M)">Nidoran(M)</option>
+			<option value="Jigglypuff">Jigglypuff</option>
+			<option value="WigglytuffMove">Wigglytuff (has Pound)</option>
+			<option value="Zubat">Zubat</option>
+			<option value="Golbat">Golbat</option>
+			<option value="GolbatMove">Golbat (has Screech/Leech Life/Supersonic)</option>
+			<option value="Oddish">Oddish</option>
+			<option value="Gloom">Gloom</option>
+			<option value="Vileplume">Vileplume</option>
+			<option value="Paras">Paras</option>
+			<option value="Venonat">Venonat</option>
+			<option value="VenonatMove">Venonat (has Supersonic/Confusion)</option>
+			<option value="Venomoth">Venomoth</option>
+			<option value="VenomothMove">Venomoth (has Supersonic/Confusion)</option>
+			<option value="Diglett">Diglett</option>
+			<option value="Meowth">Meowth</option>
+			<option value="Persian">Persian</option>
+			<option value="Mankey">Mankey</option>
+			<option value="Primeape">Primeape</option>
+			<option value="Growlithe">Growlithe</option>
+			<option value="Arcanine">Arcanine</option>
+			<option value="KadabraMove">Kadabra (has Kinesis)</option>
+			<option value="AlakazamMove">Alakazam (has Kinesis)</option>
+			<option value="Machop">Machop</option>
+			<option value="Bellsprout">Bellsprout</option>
+			<option value="Weepinbel">Weepinbel</option>
+			<option value="Victreebel">Victreebel</option>
+			<option value="Geodude">Geodude</option>
+			<option value="Graveler">Graveler</option>
+			<option value="GravelerMove">Graveler (has Tackle/Defense Curl/Rock Throw)</option>
+			<option value="Golem">Golem</option>
+			<option value="GolemMove">Golem (has Tackle/Defense Curl/Rock Throw)</option>
+			<option value="Ponyta">Ponyta</option>
+			<option value="Rapidash">Rapidash</option>
+			<option value="Magnemite">Magnemite</option>
+			<option value="Magneton">Magneton</option>
+			<option value="Doduo">Doduo</option>
+			<option value="Dodrio">Dodrio</option>
+			<option value="Grimer">Grimer</option>
+			<option value="Gastly">Gastly</option>
+			<option value="Haunter">Haunter</option>
+			<option value="Gengar">Gengar</option>
+			<option value="Onix">Onix</option>
+			<option value="Drowzee">Drowzee</option>
+			<option value="Hypno">Hypno</option>
+			<option value="VoltorbMove">Voltorb (has Tackle/Screech)</option>
+			<option value="Exeggcute">Exeggcute</option>
+			<option value="Exeggutor">Exeggutor</option>
+			<option value="Cubone">Cubone</option>
+			<option value="Marowak">Marowak</option>
+			<option value="Koffing">Koffing</option>
+			<option value="Weezing">Weezing</option>
+			<option value="Rhyhorn">Rhyhorn</option>
+			<option value="Chansey">Chansey</option>
+			<option value="Kangaskhan">Kangaskhan</option>
+			<option value="Electabuzz">Electabuzz</option>
+			<option value="Magmar">Magmar</option>
+			<option value="Tauros">Tauros</option>
+			<option value="Ditto">Ditto</option>
+		</select>
 	</label><br>
 	<label>Attack
 		<input id="atk" type="number">
@@ -18,6 +97,9 @@
 	</label>
 	<label>Special
 		<input id="spc" type="number">
+	</label><br>
+	<label>Ignore ATK?
+		<input type="checkbox" id="ignoreATK">
 	</label><br>
 	<button type="submit" onclick="">Submit</button>
 	<p id="results">
