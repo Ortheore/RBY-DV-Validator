@@ -4,7 +4,11 @@ Also I may have to reorganise things to account for this... fml
 Y-9/10/15/15 is unique, and not outclassed by any RB spread
 RB-8/15/15/13, 11/9/11/15, 13/9/7/15, 13/15/13/13, 15/9/3/15, 15/15/9/13 and 15/15/15/4 are found in RB15, but not Y15. However, all of these spreads are superseded by spreads in both RB20 and Y20
 
-Also RB30 directly outclasses Y30, and therefore all Y encounters with the exception of the one aforementioned spread 
+Also RB30 directly outclasses Y30, and therefore all Y encounters with the exception of the one aforementioned spread
+
+I'm mildly concerned about that unique Y15 spread. I think it's strange that yellow would just randomly have just one unique spread. Still, I'm pretty sure my code is sound at this point?
+
+There may be errors in the base stats!!!
 */
 var encounters={rbyAll:[[8,15,15,13],[9,9,15,15],[11,9,11,15],[13,9,7,15],[13,15,13,13],[15,9,3,15],[15,15,9,13],[15,15,14,15]],
 	rb10:[[15,15,15,1],[15,15,15,2]],
@@ -31,314 +35,392 @@ var encounters={rbyAll:[[8,15,15,13],[9,9,15,15],[11,9,11,15],[13,9,7,15],[13,15
 var encounterDex={
 	Caterpie:{
 		encounter:25,
-		baseStats:[30, 35, 20, 45]
+		baseStats:[30, 35, 45, 20],
+		y15:true
 	},
 	Metapod:{
 		encounter:25,
-		baseStats:[20,55,25,30]
+		baseStats:[20,55,30,25],
+		y15:true
 	},
 	Butterfree:{
 		encounter:25,
-		baseStats:[45,50,80,70]
+		baseStats:[45,50,70,80],
+		y15:true
 	},
 	Weedle:{
 		encounter:25,
-		baseStats:[35,30,20,50]
+		baseStats:[35,30,50,20],
+		y15:true
 	},
 	Kakuna:{
 		encounter:25,
-		baseStats:[25,50,25,35]
+		baseStats:[25,50,35,25],
+		y15:true
 	},
 	Beedrill:{
 		encounter:25,
-		baseStats:[80,40,45,75]
+		baseStats:[80,40,75,45],
+		y15:true
 	},
 	Pidgey:{
 		encounter:25,
-		baseStats:[45,40,35,56]
+		baseStats:[45,40,56,35],
+		y15:true
 	},
 	Pidgeotto:{
 		encounter:25,
-		baseStats:[60,55,50,71]
+		baseStats:[60,55,71,50],
+		y15:true
 	},
 	Pidgeot:{
 		encounter:25,
-		baseStats:[80,75,70,91]
+		baseStats:[80,75,91,70],
+		y15:true
 	},
 	Rattata:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[56,35,75,32],
+		y15:true
 	},
 	Raticate:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[81,60,97,50],
+		y15:true
 	},
 	Spearow:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[60,30,70,31],
+		y15:true
 	},
 	Fearow:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[90,65,100,61],
+		y15:true
 	},
 	Ekans:{
 		encounter:"rb20",
-		baseStats:[,,,]
+		baseStats:[60,44,55,40],
+		y15:false
 	},
 	Arbok:{
 		encounter:"rb25",
-		baseStats:[,,,]
+		baseStats:[85,69,80,65],
+		y15:false
 	},
 	ArbokMove:{
 		encounter:"rb20",
-		baseStats:[,,,]
+		baseStats:[85,69,80,65],
+		y15:false
 	},
 	Sandshrew:{
 		encounter:20,
-		baseStats:[,,,]
+		baseStats:[75,85,40,30],
+		y15:true
 	},
 	Sandslash:{
 		encounter:"rb25",
-		baseStats:[,,,]
+		baseStats:[100,110,65,55],
+		y15:true
 	},
 	SandslashMove:{
 		encounter:20,
-		baseStats:[,,,]
+		baseStats:[100,110,65,55],
+		y15:true
 	},
 	NidoranM:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[57,40,50,40],
+		y15:true
 	},
 	Jigglypuff:{
 		encounter:"rb20",
-		baseStats:[,,,]
+		baseStats:[45,20,20,25],
+		y15:true
 	},
 	WigglytuffMove:{
 		encounter:"rb20",
-		baseStats:[,,,]
+		baseStats:[70,45,45,50],
+		y15:true
 	},
 	Zubat:{
 		encounter:"y15",
-		baseStats:[,,,]
+		baseStats:[45,35,55,40],
+		y15:true
 	},
 	Golbat:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[80,70,90,75],
+		y15:true
 	},
 	GolbatMove:{
 		encounter:"y15",
-		baseStats:[,,,]
+		baseStats:[80,70,90,75],
+		y15:true
 	},
 	Oddish:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[50,55,30,75],
+		y15:true
 	},
 	Gloom:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[65,70,40,85],
+		y15:true
 	},
 	Vileplume:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[80,85,50,100],
+		y15:true
 	},
 	Paras:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[70,55,25,55],
+		y15:true
 	},
 	Venonat:{
 		encounter:"rb30",
-		baseStats:[,,,]
+		baseStats:[55,50,45,40],
+		y15:true
 	},
 	VenonatMove:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[55,50,45,40],
+		y15:true
 	},
 	Venomoth:{
 		encounter:"rb30",
-		baseStats:[,,,]
+		baseStats:[65,60,90,90],
+		y15:true
 	},
 	VenomothMove:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[65,60,90,90],
+		y15:true
 	},
 	Diglett:{
 		encounter:20,
-		baseStats:[,,,]
+		baseStats:[55,25,95,45],
+		y15:true
 	},
 	Meowth:{
 		encounter:"rb15",
-		baseStats:[,,,]
+		baseStats:[45,35,90,40],
+		y15:false
 	},
 	Persian:{
 		encounter:"rb15",
-		baseStats:[,,,]
+		baseStats:[70,60,115,65],
+		y15:false
 	},
 	Mankey:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[80,35,70,35],
+		y15:true
 	},
 	Primeape:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[105,60,95,60],
+		y15:true
 	},
 	Growlithe:{
 		encounter:"rb15",
-		baseStats:[,,,]
+		baseStats:[70,45,60,50],
+		y15:false
 	},
 	Arcanine:{
 		encounter:"rb15",
-		baseStats:[,,,]
+		baseStats:[110,80,95,80],
+		y15:false
 	},
 	KadabraMove:{
 		encounter:"rb25",
-		baseStats:[,,,]
+		baseStats:[35,30,105,120],
+		y15:true
 	},
 	AlakazamMove:{
 		encounter:"rb25",
-		baseStats:[,,,]
+		baseStats:[50,45,120,135],
+		y15:true
 	},
 	Machop:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[80,50,35,35],
+		y15:true
 	},
 	Bellsprout:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[75,35,40,70],
+		y15:true
 	},
-	Weepinbel:{
+	Weepinbell:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[90,50,55,85],
+		y15:true
 	},
 	Victreebel:{
 		encounter:25,
-		baseStats:[,,,]
+		baseStats:[105,65,70,100],
+		y15:true
 	},
 	Geodude:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[80,100,20,30],
+		y15:true
 	},
 	Graveler:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[95,115,35,45],
+		y15:true
 	},
 	GravelerMove:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[95,115,35,45],
+		y15:true
 	},
 	Golem:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[110,130,45,55],
+		y15:true
 	},
 	GolemMove:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[110,130,45,55],
+		y15:true
 	},
 	Ponyta:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[85,55,90,65],
+		y15:true
 	},
 	Rapidash:{
 		encounter:"y25",
-		baseStats:[,,,]
+		baseStats:[100,70,105,80],
+		y15:true
 	},
 	Magnemite:{
 		encounter:"y15",
-		baseStats:[,,,]
+		baseStats:[35,70,45,95],
+		y15:true
 	},
 	Magneton:{
 		encounter:"y15",
-		baseStats:[,,,]
+		baseStats:[60,95,70,120],
+		y15:true
 	},
 	Doduo:{
 		encounter:"rb30",
-		baseStats:[,,,]
+		baseStats:[85,45,75,35],
+		y15:true
 	},
 	Dodrio:{
 		encounter:"rb30",
-		baseStats:[,,,]
+		baseStats:[110,70,100,60],
+		y15:true
 	},
 	Grimer:{
 		encounter:10,
-		baseStats:[,,,]
+		baseStats:[80,50,25,40],
+		y15:true
 	},
 	Gastly:{
 		encounter:"y20",
-		baseStats:[,,,]
+		baseStats:[35,30,80,100],
+		y15:true
 	},
 	Haunter:{
 		encounter:"y20",
-		baseStats:[,,,]
+		baseStats:[50,45,95,115],
+		y15:true
 	},
 	Gengar:{
 		encounter:"y20",
-		baseStats:[,,,]
+		baseStats:[65,60,110,130],
+		y15:true
 	},
 	Onix:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[45,160,70,30],
+		y15:true
 	},
 	Drowzee:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[48,45,42,90],
+		y15:true
 	},
 	Hypno:{
 		encounter:15,
-		baseStats:[,,,]
+		baseStats:[73,70,67,115],
+		y15:true
 	},
 	VoltorbMove:{
 		encounter:"y15",
-		baseStats:[,,,]
+		baseStats:[30,50,100,55],
+		y15:true
 	},
 	Exeggcute:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[40,80,40,60],
+		y15:true
 	},
 	Exeggutor:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[95,85,55,125],
+		y15:true
 	},
 	Cubone:{
 		encounter:"y30",
-		baseStats:[,,,]
+		baseStats:[50,95,35,40],
+		y15:true
 	},
 	Marowak:{
 		encounter:"y30",
-		baseStats:[,,,]
+		baseStats:[80,100,45,50],
+		y15:true
 	},
 	Koffing:{
 		encounter:"rb10",
-		baseStats:[,,,]
+		baseStats:[60,95,35,60],
+		y15:false
 	},
 	Weezing:{
 		encounter:"rb10",
-		baseStats:[,,,]
+		baseStats:[90,120,60,85],
+		y15:false
 	},
 	Rhyhorn:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[85,95,25,30],
+		y15:true
 	},
 	Chansey:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[5,5,50,105],
+		y15:true
 	},
 	Kangaskhan:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[95,80,90,40],
+		y15:true
 	},
 	Electabuzz:{
 		encounter:"rb10",
-		baseStats:[,,,]
+		baseStats:[83,57,105,85],
+		y15:false
 	},
 	Magmar:{
 		encounter:"rb10",
-		baseStats:[,,,]
+		baseStats:[95,57,93,85],
+		y15:false
 	},
 	Tauros:{
 		encounter:30,
-		baseStats:[,,,]
+		baseStats:[100,95,110,70],
+		y15:true
 	},
 	Ditto:{
 		encounter:"rb25",
-		baseStats:[,,,]
+		baseStats:[48,48,48,48],
+		y15:false
 	}
 }
