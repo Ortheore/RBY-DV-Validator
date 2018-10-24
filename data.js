@@ -8,9 +8,9 @@ Also RB30 directly outclasses Y30, and therefore all Y encounters with the excep
 
 I'm mildly concerned about that unique Y15 spread. I think it's strange that yellow would just randomly have just one unique spread. Still, I'm pretty sure my code is sound at this point?
 
-There may be errors in the base stats!!!
+There may be errors in the base stats!!! They were entered by hand
 */
-var encounters={rbyAll:[[8,15,15,13],[9,9,15,15],[11,9,11,15],[13,9,7,15],[13,15,13,13],[15,9,3,15],[15,15,9,13],[15,15,14,15]],
+var encounterDVs={rbyAll:[[8,15,15,13],[9,9,15,15],[11,9,11,15],[13,9,7,15],[13,15,13,13],[15,9,3,15],[15,15,9,13],[15,15,14,15]],
 	rb10:[[15,15,15,1],[15,15,15,2]],
 	rb15:[[8,15,15,13],[8,15,15,14],[11,9,11,15],[13,9,7,15],[13,15,13,13],[13,15,13,14],[15,9,3,15],[15,15,9,13],[15,15,9,14],[15,15,15,3],[15,15,15,4]],
 	rb20:[[8,15,15,15],[13,15,13,15],[15,15,9,15],[15,15,15,5]],
@@ -26,7 +26,7 @@ var encounters={rbyAll:[[8,15,15,13],[9,9,15,15],[11,9,11,15],[13,9,7,15],[13,15
 	rb20NoATK:[[0,15,15,15],[5,15,13,15],[7,15,15,5]],
 	rb25NoATK:[[7,15,15,7]],
 	rb30NoATK:[[7,15,15,9]],
-	y15NoATK:[[0,15,15,14],[5,15,13,14],[7,15,15,3]],
+	y15NoATK:[[0,15,15,14],[1,10,15,15],[5,15,13,14],[7,15,15,3]],
 	y20NoATK:[[0,15,15,15],[5,15,13,15],[7,15,15,5]],
 	y25NoATK:[[7,15,15,7]],
 	y30NoATK:[[7,15,15,8]]
